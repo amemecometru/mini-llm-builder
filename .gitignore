@@ -4,9 +4,6 @@ AGENTS.md
 .env*
 .wrangler
 wrangler.jsonc
-DESIGN.md
-DESIGN-bento-noir-details.md
-DESIGN-bento-noir.md
 logs
 _.log
 npm-debug.log_
