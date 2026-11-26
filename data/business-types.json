@@ -1,0 +1,476 @@
+[
+  {
+    "id": "printing-company",
+    "name": "Printing Company",
+    "keywords": ["printing", "printer", "print shop", "offset printing", "digital printing", "business cards", "banners", "signage", "apparel printing", "screen printing", "large format", "flyers", "brochures", "stationery", "packaging", "direct mail", "copy center"],
+    "typical_services": ["Business cards and stationery", "Flyers, brochures and postcards", "Banners and large-format signage", "Apparel and promotional printing", "Packaging and labels", "Direct mail and fulfilment"],
+    "typical_process": ["Send artwork or describe the job", "Receive a proof and a quote", "Approve the proof", "Print and finish", "Pick up or arrange delivery"],
+    "typical_pricing": [
+      { "item": "Business cards", "model": "per-quantity tier" },
+      { "item": "Banners and signage", "model": "per square foot" },
+      { "item": "Apparel", "model": "per unit plus setup fee" },
+      { "item": "Rush turnaround", "model": "surcharge on standard rate" }
+    ],
+    "typical_faq": ["What file formats do you accept?", "What are your standard turnaround times?", "Do you offer rush printing?", "Can you match a specific brand colour?", "Is delivery available or is pickup required?", "What is your minimum order?"],
+    "door_type": "quote-form",
+    "image_suggestions": ["press and paper detail", "finished print pieces", "signage in situ", "workshop and equipment"],
+    "notes": "Never assert turnaround times, minimum orders, colour guarantees, or delivery terms. Pricing renders placeholders."
+  },
+  {
+    "id": "glass-and-mirror",
+    "name": "Glass and Mirror Company",
+    "keywords": ["glass", "mirror", "mirrors", "shower", "shower door", "shower enclosure", "tempered glass", "glazier", "glazing", "frameless", "vanity mirror", "bathroom glass", "glass panel", "glass shelf", "glass partition", "custom glass", "mirror replacement", "glass repair"],
+    "tone": "Precise and quiet. Talks about measurements, thickness and finishes. Never about deals or discounts.",
+    "typical_services": [
+      { "name": "Frameless shower enclosures", "desc": "Cut to the opening after a site measure, with as little visible hardware as the glass allows." },
+      { "name": "Shower doors and fixed panels", "desc": "Hinged or sliding, in clear or low-iron glass." },
+      { "name": "Wall and vanity mirrors", "desc": "Polished edges, sized to the wall, hung on brass or steel fixings." },
+      { "name": "Glass shelving and partitions", "desc": "Cut to fit alcoves, with concealed brackets." },
+      { "name": "Bathroom hardware and fittings", "desc": "Hinges, handles, towel bars and shelves in the finish you choose." },
+      { "name": "Mirror replacement and re-silvering", "desc": "Swap a failing mirror without disturbing the tiles around it." }
+    ],
+    "typical_process": [
+      { "title": "Measure and template", "desc": "We come to the house and template the opening before anything is cut." },
+      { "title": "Fabricate, temper and polish", "desc": "The panel is cut, tempered and edge-polished to the template." },
+      { "title": "Install, seal and level", "desc": "Fitted, sealed and levelled in a single visit." },
+      { "title": "Hand over care guidance", "desc": "What to use on the glass, and what never to use." }
+    ],
+    "trust_signals": ["Measured on site before quoting", "Tempered safety glass", "Brass or steel hardware", "Fitted by the same people who measured"],
+    "customer_worries": ["Will it fit my awkward opening?", "Is tempered glass safe around children?", "Will the hardware match my taps?", "Will they damage the tiles taking the old one out?"],
+    "cta_language": ["Request a measure", "Book a site visit", "Get a templated quote"],
+    "sections_priority": ["hero", "services", "process", "validations", "pricing", "guide", "door", "footer"],
+    "proof_types": ["installed project photos", "customer reviews", "hardware finish samples"],
+    "typical_pricing": [
+      { "item": "Shower enclosure", "model": "per opening" },
+      { "item": "Fixed panel", "model": "per square foot" },
+      { "item": "Mirror", "model": "per square foot" },
+      { "item": "Hardware", "model": "per fitting" }
+    ],
+    "typical_faq": ["Do you measure on site before quoting?", "What glass thickness do you use?", "Is the glass tempered?", "Do you offer frameless enclosures?", "How long between measure and install?", "Do you handle removal of the old enclosure?"],
+    "door_type": "quote-form",
+    "image_suggestions": ["bathroom interior with glass", "shower enclosure detail", "brass or steel hardware", "mirror over a vanity", "before and after"],
+    "notes": "Never assert lead times, tempering certification, warranty terms, or installation dates. Pricing renders placeholders."
+  },
+  {
+    "id": "bar-and-grill",
+    "name": "Bar and Grill",
+    "keywords": ["bar and grill", "bar", "grill", "pub", "tavern", "sports bar", "catfish fry", "wings", "burgers", "draft beer", "happy hour", "live music", "casual dining", "american food"],
+    "typical_services": ["Burgers and sandwiches", "Wings and shareables", "Weekly specials", "Draft beer and cocktails", "Live music and events", "Private parties"],
+    "typical_process": ["Browse the menu", "Order at the bar or with a server", "Eat in or take out", "Pay and tip", "Return for weekly specials"],
+    "typical_pricing": [
+      { "item": "Entrees", "model": "per plate" },
+      { "item": "Shareables", "model": "per basket" },
+      { "item": "Drinks", "model": "per pour" },
+      { "item": "Weekly special", "model": "fixed plate price" }
+    ],
+    "typical_faq": ["Do you take reservations?", "Do you show sports on TV?", "Is there live music and on which nights?", "Do you have a patio?", "Is takeout available?", "Are you family friendly?"],
+    "door_type": "booking-form",
+    "image_suggestions": ["plated food close-up", "bar interior with warm light", "crowd and atmosphere", "exterior at night"],
+    "notes": "Never assert opening hours, specials, entertainment schedule, or reservation policy."
+  },
+  {
+    "id": "pizza-restaurant",
+    "name": "Pizza Restaurant",
+    "keywords": ["pizza", "pizzeria", "pizza shop", "slice", "calzone", "stromboli", "delivery pizza", "takeout pizza", "wood fired", "neapolitan", "wings and pizza"],
+    "typical_services": ["Whole pies and slices", "Calzones and stromboli", "Salads and sides", "Wings and appetisers", "Delivery and takeout", "Catering trays"],
+    "typical_process": ["Choose size and toppings", "Order online or by phone", "Bake to order", "Pick up or receive delivery"],
+    "typical_pricing": [
+      { "item": "Small pie", "model": "per pie" },
+      { "item": "Large pie", "model": "per pie" },
+      { "item": "Toppings", "model": "per topping" },
+      { "item": "Delivery", "model": "flat fee" }
+    ],
+    "typical_faq": ["Do you deliver and what is the radius?", "Is there a minimum for delivery?", "Do you offer gluten free crust?", "Can I order by the slice?", "How long is a typical order?", "Do you cater events?"],
+    "door_type": "order-online",
+    "image_suggestions": ["pizza overhead shot", "oven and flame", "slice pull with cheese", "storefront"],
+    "notes": "Never assert delivery radius, minimums, or bake times."
+  },
+  {
+    "id": "coffee-shop",
+    "name": "Coffee Shop",
+    "keywords": ["coffee", "coffee shop", "cafe", "espresso", "roaster", "roastery", "latte", "pour over", "specialty coffee", "bakery cafe", "beans", "cold brew"],
+    "typical_services": ["Espresso drinks", "Brewed coffee and pour over", "Whole bean and ground retail bags", "Pastries and light food", "Subscriptions and wholesale"],
+    "typical_process": ["Choose a drink or beans", "Order at the counter or online", "Drink in, take away, or ship", "Subscribe for recurring delivery"],
+    "typical_pricing": [
+      { "item": "Espresso drinks", "model": "per cup" },
+      { "item": "Retail beans", "model": "per bag" },
+      { "item": "Subscription", "model": "per delivery" },
+      { "item": "Wholesale", "model": "per case" }
+    ],
+    "typical_faq": ["Do you roast in house?", "Do you offer subscriptions?", "Is there seating and wifi?", "Do you sell wholesale?", "Are dairy alternatives available?", "What are your opening hours?"],
+    "door_type": "order-online",
+    "image_suggestions": ["latte art close-up", "roastery and beans", "counter and interior", "bags of retail beans"],
+    "notes": "Never assert roast dates, origins, hours, or subscription terms."
+  },
+  {
+    "id": "mexican-restaurant",
+    "name": "Mexican Restaurant",
+    "keywords": ["mexican", "taqueria", "tacos", "burritos", "enchiladas", "cantina", "tex mex", "fajitas", "quesadilla", "salsa", "margaritas"],
+    "typical_services": ["Tacos and burritos", "Enchiladas and combination plates", "Appetisers and salsa", "Drinks and margaritas", "Catering and party trays"],
+    "typical_process": ["Browse the menu", "Order at the counter or with a server", "Eat in or take out", "Pay and return"],
+    "typical_pricing": [
+      { "item": "Tacos", "model": "per taco" },
+      { "item": "Plates", "model": "per plate" },
+      { "item": "Catering tray", "model": "per tray" },
+      { "item": "Drinks", "model": "per glass" }
+    ],
+    "typical_faq": ["Do you offer vegetarian options?", "Is there a lunch special?", "Do you cater events?", "Is takeout available?", "Do you take reservations?", "How spicy are the dishes?"],
+    "door_type": "booking-form",
+    "image_suggestions": ["taco close-up", "salsa and chips", "cantina interior", "exterior signage"],
+    "notes": "Never assert hours, specials, spice levels, or catering minimums."
+  },
+  {
+    "id": "italian-restaurant",
+    "name": "Italian Restaurant",
+    "keywords": ["italian", "trattoria", "pasta", "risotto", "lasagna", "italian restaurant", "red sauce", "pizza and pasta", "fine dining italian"],
+    "typical_services": ["Pasta and risotto", "Antipasti and salads", "Secondi and mains", "Desserts", "Wine list", "Private dining"],
+    "typical_process": ["Reserve a table", "Order from the menu", "Dine in or take out", "Pay and tip"],
+    "typical_pricing": [
+      { "item": "Antipasti", "model": "per plate" },
+      { "item": "Pasta", "model": "per plate" },
+      { "item": "Mains", "model": "per plate" },
+      { "item": "Wine", "model": "per bottle or glass" }
+    ],
+    "typical_faq": ["Do you take reservations?", "Is there a dress code?", "Do you offer gluten free pasta?", "Is there private dining?", "Do you have a wine list?", "Is takeout available?"],
+    "door_type": "booking-form",
+    "image_suggestions": ["pasta plated close-up", "dining room", "wine and glassware", "exterior at dusk"],
+    "notes": "Never assert hours, dress code, reservation policy, or wine availability."
+  },
+  {
+    "id": "food-truck",
+    "name": "Food Truck",
+    "keywords": ["food truck", "mobile food", "street food", "food trailer", "truck catering", "pop up food", "festival food"],
+    "typical_services": ["Daily menu items", "Rotating specials", "Private catering", "Event and festival service", "Pre-order pickup"],
+    "typical_process": ["Check the schedule or request a booking", "Pre-order or walk up", "Collect and pay", "Book for a private event"],
+    "typical_pricing": [
+      { "item": "Menu items", "model": "per item" },
+      { "item": "Private event", "model": "flat booking fee" },
+      { "item": "Per-head catering", "model": "per guest" }
+    ],
+    "typical_faq": ["Where are you parked this week?", "Do you cater private events?", "Can I pre-order?", "Do you attend festivals?", "What is your minimum for catering?", "Do you have vegetarian options?"],
+    "door_type": "booking-form",
+    "image_suggestions": ["truck exterior", "food being served", "crowd at the window", "menu board"],
+    "notes": "Never assert location schedule, catering minimums, or menu availability."
+  },
+  {
+    "id": "plumber",
+    "name": "Plumber",
+    "keywords": ["plumber", "plumbing", "drain", "leak", "water heater", "pipe repair", "blocked drain", "emergency plumber", "boiler", "repipe", "sewer"],
+    "typical_services": ["Emergency leak and burst pipe repair", "Blocked drain clearing", "Water heater repair and replacement", "Fixture installation", "Repiping", "Bathroom and kitchen rough-in"],
+    "typical_process": ["Call or request a quote", "Describe the problem", "Book a visit window", "Diagnose on site", "Approve the work", "Repair and test"],
+    "typical_pricing": [
+      { "item": "Service call", "model": "flat call-out fee" },
+      { "item": "Hourly work", "model": "hourly rate" },
+      { "item": "Parts", "model": "cost plus markup" },
+      { "item": "Emergency callout", "model": "surcharge on standard rate" }
+    ],
+    "typical_faq": ["Do you offer emergency callouts?", "Are you licensed and insured?", "Do you charge a call-out fee?", "What areas do you cover?", "Do you guarantee the work?", "How soon can you attend?"],
+    "door_type": "quote-form",
+    "image_suggestions": ["technician at work", "pipework detail", "van and tools", "before and after repair"],
+    "notes": "Never assert licensing, insurance, emergency availability, coverage area, or guarantees."
+  },
+  {
+    "id": "electrician",
+    "name": "Electrician",
+    "keywords": ["electrician", "electrical", "wiring", "rewire", "fuse board", "consumer unit", "lighting installation", "ev charger", "socket", "electric repair", "panel upgrade"],
+    "typical_services": ["Fault finding and repair", "Fuse board and panel upgrades", "Lighting design and installation", "Socket and circuit installation", "EV charger installation", "Rewiring"],
+    "typical_process": ["Request a quote", "Describe the job or send photos", "Book an assessment", "Receive a fixed quote", "Complete and certify the work"],
+    "typical_pricing": [
+      { "item": "Call-out", "model": "flat fee" },
+      { "item": "Hourly work", "model": "hourly rate" },
+      { "item": "Fixed job quote", "model": "per project" },
+      { "item": "Certification", "model": "per certificate" }
+    ],
+    "typical_faq": ["Are you licensed and certified?", "Do you provide certification on completion?", "Do you handle emergency faults?", "What areas do you cover?", "Do you install EV chargers?", "Is there a call-out fee?"],
+    "door_type": "quote-form",
+    "image_suggestions": ["panel and breakers", "electrician at work", "cable runs", "completed lighting"],
+    "notes": "Never assert licensing, certification, emergency availability, or coverage."
+  },
+  {
+    "id": "hvac",
+    "name": "HVAC Contractor",
+    "keywords": ["hvac", "heating", "air conditioning", "ac repair", "furnace", "heat pump", "ductwork", "ventilation", "boiler service", "cooling", "air handler"],
+    "typical_services": ["Air conditioning repair and install", "Heating and furnace service", "Heat pump installation", "Ductwork and ventilation", "Seasonal maintenance plans", "Indoor air quality"],
+    "typical_process": ["Request a quote or service call", "Describe the system and issue", "Book a diagnostic visit", "Receive findings and options", "Approve and schedule the work"],
+    "typical_pricing": [
+      { "item": "Diagnostic visit", "model": "flat fee" },
+      { "item": "Repair labour", "model": "hourly rate" },
+      { "item": "System install", "model": "per project" },
+      { "item": "Maintenance plan", "model": "per year" }
+    ],
+    "typical_faq": ["Do you offer emergency service?", "Do you service both heating and cooling?", "Are you licensed and insured?", "Do you offer maintenance plans?", "What brands do you install?", "How long does an install take?"],
+    "door_type": "quote-form",
+    "image_suggestions": ["outdoor condenser unit", "technician servicing", "thermostat close-up", "ductwork"],
+    "notes": "Never assert emergency availability, licensing, brand partnerships, or install timelines."
+  },
+  {
+    "id": "roofer",
+    "name": "Roofing Contractor",
+    "keywords": ["roofer", "roofing", "shingles", "roof repair", "roof replacement", "leak repair", "flat roof", "metal roof", "gutter", "storm damage", "reroof"],
+    "typical_services": ["Roof inspection and leak repair", "Full roof replacement", "Flat and metal roofing", "Storm and hail damage repair", "Gutter installation", "Insurance claim support"],
+    "typical_process": ["Request an inspection", "On-site assessment", "Receive a written quote", "Approve and schedule", "Install and clean up", "Final walkthrough"],
+    "typical_pricing": [
+      { "item": "Inspection", "model": "flat fee or free" },
+      { "item": "Repair", "model": "per job" },
+      { "item": "Replacement", "model": "per square" },
+      { "item": "Insurance work", "model": "per approved claim" }
+    ],
+    "typical_faq": ["Do you offer free inspections?", "Are you licensed and insured?", "Do you handle insurance claims?", "What roofing materials do you install?", "Is there a workmanship warranty?", "How long does a replacement take?"],
+    "door_type": "quote-form",
+    "image_suggestions": ["roof from above", "crew installing", "before and after", "shingle detail"],
+    "notes": "Never assert warranty terms, licensing, insurance-claim handling, or timelines."
+  },
+  {
+    "id": "landscaper",
+    "name": "Landscaping Company",
+    "keywords": ["landscaping", "landscaper", "lawn care", "garden design", "mowing", "hedge trimming", "hardscaping", "patio", "mulch", "planting", "irrigation", "yard maintenance"],
+    "typical_services": ["Lawn mowing and maintenance", "Garden design and planting", "Hedge and tree trimming", "Hardscaping and patios", "Irrigation installation", "Seasonal cleanups"],
+    "typical_process": ["Request a quote", "Site visit and measure", "Receive a design or plan", "Approve and schedule", "Install and maintain"],
+    "typical_pricing": [
+      { "item": "Recurring maintenance", "model": "per visit" },
+      { "item": "Design", "model": "per project" },
+      { "item": "Hardscaping", "model": "per square foot" },
+      { "item": "Cleanup", "model": "per job" }
+    ],
+    "typical_faq": ["Do you offer recurring maintenance?", "Do you design as well as install?", "Are you insured?", "What areas do you cover?", "Do you handle irrigation?", "Is there a minimum contract?"],
+    "door_type": "quote-form",
+    "image_suggestions": ["finished garden", "crew at work", "hardscape detail", "before and after"],
+    "notes": "Never assert coverage area, contract minimums, insurance, or seasonal availability."
+  },
+  {
+    "id": "painter",
+    "name": "Painting Contractor",
+    "keywords": ["painter", "painting", "house painter", "interior painting", "exterior painting", "deck staining", "wallpaper", "drywall repair", "commercial painting", "repaint"],
+    "typical_services": ["Interior painting", "Exterior painting", "Cabinet and trim refinishing", "Deck and fence staining", "Drywall repair", "Commercial painting"],
+    "typical_process": ["Request a quote", "Site visit and colour consult", "Receive a written estimate", "Prepare and protect surfaces", "Paint and inspect", "Final walkthrough"],
+    "typical_pricing": [
+      { "item": "Interior room", "model": "per room" },
+      { "item": "Exterior", "model": "per square foot" },
+      { "item": "Cabinets", "model": "per unit" },
+      { "item": "Prep and repair", "model": "hourly rate" }
+    ],
+    "typical_faq": ["Do you provide a written estimate?", "Are you licensed and insured?", "Do you help with colour selection?", "What paint brands do you use?", "Do you move furniture?", "Is there a warranty on the work?"],
+    "door_type": "quote-form",
+    "image_suggestions": ["freshly painted room", "crew prepping", "trim detail", "before and after"],
+    "notes": "Never assert licensing, insurance, warranty terms, or paint brands."
+  },
+  {
+    "id": "handyman",
+    "name": "Handyman Service",
+    "keywords": ["handyman", "odd jobs", "small repairs", "home repair", "furniture assembly", "drywall patch", "shelf installation", "door repair", "general maintenance"],
+    "typical_services": ["Small home repairs", "Furniture assembly", "Shelving and mounting", "Door and window adjustment", "Drywall patching", "Punch-list and rental turnover"],
+    "typical_process": ["Describe the job or send photos", "Receive a quote", "Book a visit window", "Complete the work", "Pay on completion"],
+    "typical_pricing": [
+      { "item": "Hourly work", "model": "hourly rate" },
+      { "item": "Half-day", "model": "flat rate" },
+      { "item": "Full-day", "model": "flat rate" },
+      { "item": "Materials", "model": "at cost" }
+    ],
+    "typical_faq": ["What jobs do you take on?", "Do you charge by the hour or by the job?", "Are you insured?", "Do you supply materials?", "What areas do you cover?", "Is there a minimum charge?"],
+    "door_type": "quote-form",
+    "image_suggestions": ["tools laid out", "completed repair", "shelving install", "workspace"],
+    "notes": "Never assert hourly rates, minimums, insurance, or coverage."
+  },
+  {
+    "id": "locksmith",
+    "name": "Locksmith",
+    "keywords": ["locksmith", "lockout", "rekey", "lock change", "car lockout", "house lockout", "key cutting", "deadbolt", "safe opening", "emergency locksmith"],
+    "typical_services": ["Emergency lockouts", "Lock replacement and rekeying", "Deadbolt installation", "Key cutting and duplication", "Safe opening", "Access control"],
+    "typical_process": ["Call with the situation", "Confirm location and ID requirements", "Dispatch a technician", "Verify ownership", "Open or replace the lock", "Pay on site"],
+    "typical_pricing": [
+      { "item": "Lockout", "model": "flat call-out fee" },
+      { "item": "Rekey", "model": "per lock" },
+      { "item": "Lock replacement", "model": "per unit plus labour" },
+      { "item": "After hours", "model": "surcharge" }
+    ],
+    "typical_faq": ["Do you offer 24 hour service?", "What identification is required?", "Do you cover my area?", "Can you rekey rather than replace?", "Do you work on car locks?", "How quickly can you attend?"],
+    "door_type": "call-now",
+    "image_suggestions": ["van and tools", "lock and key detail", "technician at door", "storefront"],
+    "notes": "Never assert 24 hour availability, response times, coverage, or ID policy."
+  },
+  {
+    "id": "auto-repair",
+    "name": "Auto Repair Shop",
+    "keywords": ["auto repair", "mechanic", "car repair", "brakes", "oil change", "transmission", "engine repair", "diagnostics", "tires", "service center", "garage"],
+    "typical_services": ["Diagnostics and fault finding", "Brake service", "Oil and routine maintenance", "Engine and transmission repair", "Tyre fitting and alignment", "Pre-purchase inspection"],
+    "typical_process": ["Book or drop in", "Describe the symptoms", "Diagnostic assessment", "Receive a quote", "Approve the work", "Repair and collect"],
+    "typical_pricing": [
+      { "item": "Diagnostic", "model": "flat fee" },
+      { "item": "Routine service", "model": "per service" },
+      { "item": "Repair labour", "model": "hourly rate" },
+      { "item": "Parts", "model": "cost plus markup" }
+    ],
+    "typical_faq": ["Do you offer loan cars?", "Do you work on all makes?", "Is there a diagnostic fee?", "Do you provide written quotes?", "How long will my car be in?", "Do you offer courtesy inspections?"],
+    "door_type": "booking-form",
+    "image_suggestions": ["workshop interior", "car on lift", "technician with diagnostic tool", "clean reception"],
+    "notes": "Never assert makes serviced, loan cars, diagnostic fees, or turnaround."
+  },
+  {
+    "id": "barber",
+    "name": "Barbershop",
+    "keywords": ["barber", "barbershop", "haircut", "fade", "beard trim", "shave", "men haircut", "kids haircut", "walk in barber"],
+    "typical_services": ["Haircuts and fades", "Beard trimming and shaping", "Hot towel shaves", "Kids cuts", "Line ups and edging"],
+    "typical_process": ["Book online or walk in", "Choose a barber", "Consult on the cut", "Cut and finish", "Pay and rebook"],
+    "typical_pricing": [
+      { "item": "Haircut", "model": "per service" },
+      { "item": "Beard trim", "model": "per service" },
+      { "item": "Cut and beard", "model": "combined price" },
+      { "item": "Kids cut", "model": "per service" }
+    ],
+    "typical_faq": ["Do you take walk ins?", "Can I book online?", "Do you cut kids hair?", "Do you do beard trims?", "How long is a typical appointment?", "Do you take card payments?"],
+    "door_type": "booking-form",
+    "image_suggestions": ["chair and mirror", "cut in progress", "tool detail", "shop interior"],
+    "notes": "Never assert walk-in policy, prices, or appointment length."
+  },
+  {
+    "id": "hair-salon",
+    "name": "Hair Salon",
+    "keywords": ["hair salon", "salon", "hairdresser", "colour", "highlights", "balayage", "blow dry", "styling", "hair treatment", "bridal hair"],
+    "typical_services": ["Cut and style", "Colour and highlights", "Balayage and colour correction", "Treatments", "Blow dry and styling", "Bridal and event hair"],
+    "typical_process": ["Book a consultation", "Discuss the look and history", "Receive a quote", "Book the appointment", "Service and aftercare advice"],
+    "typical_pricing": [
+      { "item": "Cut and style", "model": "per service" },
+      { "item": "Colour", "model": "per service" },
+      { "item": "Treatment", "model": "add-on" },
+      { "item": "Bridal", "model": "per package" }
+    ],
+    "typical_faq": ["Do you offer consultations?", "Are you taking new clients?", "What colour services do you offer?", "Do you do bridal hair?", "What products do you use?", "How far ahead should I book?"],
+    "door_type": "booking-form",
+    "image_suggestions": ["salon interior", "colour work close-up", "styling in progress", "product shelf"],
+    "notes": "Never assert availability, product brands, or pricing."
+  },
+  {
+    "id": "nail-salon",
+    "name": "Nail Salon",
+    "keywords": ["nail salon", "nails", "manicure", "pedicure", "gel nails", "acrylic nails", "nail art", "shellac", "spa pedicure"],
+    "typical_services": ["Manicure and pedicure", "Gel and acrylic enhancements", "Nail art", "Spa treatments", "Removal and repair"],
+    "typical_process": ["Book an appointment", "Choose a service and style", "Consult on shape and colour", "Service", "Aftercare advice"],
+    "typical_pricing": [
+      { "item": "Manicure", "model": "per service" },
+      { "item": "Pedicure", "model": "per service" },
+      { "item": "Enhancements", "model": "per set" },
+      { "item": "Nail art", "model": "per nail" }
+    ],
+    "typical_faq": ["Do you take walk ins?", "How long does a full set take?", "Do you offer nail art?", "What products do you use?", "How often should I rebook?", "Do you do removals?"],
+    "door_type": "booking-form",
+    "image_suggestions": ["finished nails close-up", "salon interior", "colour swatches", "treatment in progress"],
+    "notes": "Never assert walk-in policy, product brands, or service durations."
+  },
+  {
+    "id": "dentist",
+    "name": "Dental Practice",
+    "keywords": ["dentist", "dental", "dental practice", "teeth cleaning", "checkup", "filling", "crown", "whitening", "orthodontics", "emergency dentist", "hygienist"],
+    "typical_services": ["Routine checkups and cleaning", "Fillings and restorative work", "Crowns and bridges", "Teeth whitening", "Orthodontic assessment", "Emergency dental care"],
+    "typical_process": ["Book an appointment", "New patient examination", "Treatment plan and quote", "Schedule treatment", "Follow up and recall"],
+    "typical_pricing": [
+      { "item": "Checkup", "model": "per visit" },
+      { "item": "Hygiene", "model": "per visit" },
+      { "item": "Restorative", "model": "per tooth" },
+      { "item": "Payment plan", "model": "monthly instalments" }
+    ],
+    "typical_faq": ["Are you accepting new patients?", "Do you offer payment plans?", "Do you take insurance?", "Do you offer emergency appointments?", "Is there a hygienist?", "What does a first visit involve?"],
+    "door_type": "booking-form",
+    "image_suggestions": ["treatment room", "reception", "smiling patient", "equipment detail"],
+    "notes": "Never assert insurance acceptance, payment plans, emergency availability, or new-patient status."
+  },
+  {
+    "id": "chiropractor",
+    "name": "Chiropractic Clinic",
+    "keywords": ["chiropractor", "chiropractic", "back pain", "adjustment", "spinal", "neck pain", "sports injury", "posture", "wellness clinic"],
+    "typical_services": ["Initial assessment", "Spinal adjustment", "Posture and ergonomic advice", "Sports injury treatment", "Maintenance care plans"],
+    "typical_process": ["Book an initial consultation", "Assessment and history", "Treatment plan and quote", "Course of treatment", "Review and maintenance"],
+    "typical_pricing": [
+      { "item": "Initial consultation", "model": "per visit" },
+      { "item": "Follow up", "model": "per visit" },
+      { "item": "Treatment plan", "model": "per course" }
+    ],
+    "typical_faq": ["Do you require a referral?", "What happens at a first visit?", "How many sessions will I need?", "Do you treat sports injuries?", "Do you offer payment plans?", "Is treatment covered by insurance?"],
+    "door_type": "booking-form",
+    "image_suggestions": ["treatment room", "clinic reception", "practitioner at work", "equipment detail"],
+    "notes": "Never assert referral requirements, insurance coverage, session counts, or outcomes."
+  },
+  {
+    "id": "law-firm",
+    "name": "Law Firm",
+    "keywords": ["law firm", "lawyer", "attorney", "legal", "solicitor", "family law", "estate planning", "personal injury", "business law", "litigation", "contracts"],
+    "typical_services": ["Initial consultation", "Family law", "Estate planning and wills", "Business and contract law", "Personal injury", "Litigation and dispute resolution"],
+    "typical_process": ["Request a consultation", "Conflict check and intake", "Initial meeting", "Engagement letter and scope", "Work and communication", "Resolution"],
+    "typical_pricing": [
+      { "item": "Initial consultation", "model": "flat fee or free" },
+      { "item": "Fixed-scope work", "model": "per matter" },
+      { "item": "Hourly work", "model": "hourly rate" },
+      { "item": "Retainer", "model": "monthly" }
+    ],
+    "typical_faq": ["Do you offer an initial consultation?", "What are your fees and how are they structured?", "What areas of law do you practise?", "How long will my matter take?", "Who will handle my case?", "Do you offer fixed fees?"],
+    "door_type": "quote-form",
+    "image_suggestions": ["office and library", "meeting room", "professional portrait", "city exterior"],
+    "notes": "Never assert fee structures, free consultations, practice areas beyond the list, or outcomes. Legal outcomes must never be promised."
+  },
+  {
+    "id": "accountant",
+    "name": "Accounting Firm",
+    "keywords": ["accountant", "accounting", "bookkeeping", "tax preparation", "tax return", "payroll", "cpa", "financial statements", "audit", "business advisory"],
+    "typical_services": ["Bookkeeping", "Tax preparation and filing", "Payroll", "Financial statements", "Business advisory", "Company formation"],
+    "typical_process": ["Initial consultation", "Review of records", "Scope and quote", "Engagement", "Ongoing filing and reporting"],
+    "typical_pricing": [
+      { "item": "Tax return", "model": "per return" },
+      { "item": "Bookkeeping", "model": "monthly retainer" },
+      { "item": "Payroll", "model": "per pay run" },
+      { "item": "Advisory", "model": "hourly rate" }
+    ],
+    "typical_faq": ["Do you work with small businesses?", "What is your fee structure?", "Do you offer bookkeeping as well as tax?", "Can you handle payroll?", "How do you receive documents?", "Are you a certified accountant?"],
+    "door_type": "quote-form",
+    "image_suggestions": ["office desk", "documents and calculator", "team portrait", "meeting room"],
+    "notes": "Never assert certifications, fee structures, or filing deadlines."
+  },
+  {
+    "id": "real-estate-agent",
+    "name": "Real Estate Agent",
+    "keywords": ["real estate", "realtor", "estate agent", "property", "listing", "buyer agent", "seller agent", "home sale", "house hunting", "property valuation"],
+    "typical_services": ["Buyer representation", "Seller representation and listing", "Property valuation", "Market analysis", "Negotiation", "Closing coordination"],
+    "typical_process": ["Initial consultation", "Define the brief or valuation", "Search or list the property", "Viewings or marketing", "Offer and negotiation", "Closing"],
+    "typical_pricing": [
+      { "item": "Seller commission", "model": "percentage of sale" },
+      { "item": "Buyer representation", "model": "commission or flat fee" },
+      { "item": "Valuation", "model": "flat fee or free" }
+    ],
+    "typical_faq": ["What areas do you cover?", "How do you charge for sellers?", "Do you offer free valuations?", "How long do properties take to sell?", "Do you work with first time buyers?", "What is your marketing approach?"],
+    "door_type": "booking-form",
+    "image_suggestions": ["property exterior", "interior staging", "agent with clients", "neighbourhood"],
+    "notes": "Never assert commission rates, sale timelines, or coverage."
+  },
+  {
+    "id": "gym",
+    "name": "Gym and Fitness Studio",
+    "keywords": ["gym", "fitness", "fitness studio", "personal training", "classes", "weights", "crossfit", "membership", "bootcamp", "strength training"],
+    "typical_services": ["Membership access", "Group classes", "Personal training", "Strength and conditioning", "Induction and programming", "Day passes"],
+    "typical_process": ["Enquire or book a trial", "Tour the facility", "Choose a membership or class pack", "Induction and programme", "Train"],
+    "typical_pricing": [
+      { "item": "Monthly membership", "model": "per month" },
+      { "item": "Class pack", "model": "per pack" },
+      { "item": "Personal training", "model": "per session" },
+      { "item": "Day pass", "model": "per visit" }
+    ],
+    "typical_faq": ["Do you offer a trial or day pass?", "What classes do you run?", "Is there a joining fee?", "Can I cancel any time?", "Do you offer personal training?", "What are your opening hours?"],
+    "door_type": "signup",
+    "image_suggestions": ["equipment floor", "class in progress", "trainer coaching", "studio exterior"],
+    "notes": "Never assert contract terms, class schedules, joining fees, or opening hours."
+  },
+  {
+    "id": "pet-grooming",
+    "name": "Pet Grooming",
+    "keywords": ["pet grooming", "groomer", "dog grooming", "cat grooming", "dog wash", "nail trim", "de shedding", "pet salon", "mobile grooming"],
+    "typical_services": ["Full groom", "Bath and brush", "Nail trimming", "De-shedding treatment", "Puppy first groom", "Mobile grooming"],
+    "typical_process": ["Book an appointment", "Discuss breed and coat", "Drop off", "Groom and finish", "Collect and aftercare advice"],
+    "typical_pricing": [
+      { "item": "Full groom", "model": "by size and coat" },
+      { "item": "Bath and brush", "model": "by size" },
+      { "item": "Nail trim", "model": "per service" },
+      { "item": "Mobile visit", "model": "call-out plus service" }
+    ],
+    "typical_faq": ["Do you groom all breeds?", "Do you offer mobile grooming?", "How long does a groom take?", "Do you require vaccination records?", "Can I stay during the groom?", "How often should my dog be groomed?"],
+    "door_type": "booking-form",
+    "image_suggestions": ["groomed dog portrait", "grooming table", "before and after", "salon interior"],
+    "notes": "Never assert vaccination policy, breed restrictions, or appointment length."
+  }
+]

@@ -1,0 +1,152 @@
+# sections.yaml — slot contracts
+#
+# The bridge between DESIGN.md prose and the plan JSON.
+# DESIGN.md says how a section should FEEL. This file says what data it CONSUMES.
+#
+# Rules:
+#   - A section whose required slots are empty is DROPPED, not rendered blank.
+#   - `derived` slots are computed by the renderer, never supplied by the model.
+#   - `optional` slots may be absent; the renderer reflows.
+#   - Never invent a value to fill a required slot. Drop the section instead.
+
+version: 1
+family: bento-noir
+
+sections:
+
+  services:
+    required: [headline, statement, marquee, flagship, tiles]
+    content:
+      headline: string
+      statement: string
+      marquee: [string]                 # 5-8 service names
+      flagship:
+        name: string
+        description: string             # two lines
+        fact: { label: string, value: string }
+        image: { src: string, alt: string }
+      tiles:                            # 3, in a row of four columns
+        - { name: string, description: string, fact: { label: string, value: string } }
+      actions:
+        primary: { label: string, href: string }
+        secondary: { label: string, href: string }   # optional
+    derived: [tile_number]
+    min_items: 4
+    max_items: 6
+    drop_when: marquee is empty
+    motion: [split-text, stagger-children, direction-aware-marquee, parallax-light]
+
+  process:
+    required: [headline, statement, steps]
+    content:
+      headline: string
+      statement: string
+      steps:                            # exactly 4
+        - { name: string, description: string, fact: { label: string, value: string } }
+      actions:
+        primary: { label: string, href: string }
+    derived: [step_number]              # 01-04
+    min_items: 4
+    max_items: 4
+    drop_when: steps has fewer than 3
+    motion: [fade-rise, pin-section, scrub-timeline]
+
+  proof:
+    required: [headline, statement]
+    content:
+      headline: string
+      statement: string
+      quote: { text: string, name: string, location: string }     # flagship, optional
+      stats:                            # 2, stacked
+        - { label: string, value: string, description: string }
+      before_after: { before: { src, alt }, after: { src, alt } } # optional
+      second_quote: { text: string, rating: integer }             # optional
+      credentials: { label: string, items: [string] }             # optional
+    derived: [rating_dots]
+    drop_when: no quote, no stats, and no credentials
+    motion: [split-text, batch-cards, 3d-flip, scrub-timeline]
+
+  team:
+    required: [headline, statement, lead]
+    content:
+      headline: string
+      statement: string
+      lead: { name: string, role: string, bio: string, photo: { src, alt } }
+      members:                          # up to 5, stacked + row
+        - { name: string, role: string, bio: string, photo: { src, alt } }
+    derived: [initials]                 # when photo is missing
+    drop_when: lead is empty
+    motion: [fade-rise, stagger-children, 3d-flip, parallax-light]
+
+  partners:
+    required: [headline, statement, featured, tiles]
+    content:
+      headline: string
+      statement: string
+      marquee: [string]                 # partner names
+      featured: { name: string, what: string, description: string }
+      tiles:                            # 3
+        - { name: string, what: string, type: referral|supplier|collaborator }
+    derived: []
+    min_items: 4
+    max_items: 6
+    drop_when: featured is empty
+    motion: [split-text, direction-aware-marquee, batch-cards]
+
+  guide:
+    required: [headline, statement, items]
+    content:
+      headline: string
+      statement: string
+      items:                            # 4-6
+        - { question: string, answer: string }
+      actions:
+        primary: { label: string, href: string }
+    derived: [open_first]
+    min_items: 4
+    max_items: 6
+    drop_when: items has fewer than 3
+    motion: [fade-rise, stagger-children]
+
+  validations:
+    required: [headline, statement, tiles]
+    content:
+      headline: string
+      statement: string
+      tiles:                            # exactly 4
+        - { type: string, label: string, description: string }
+    derived: []
+    min_items: 4
+    max_items: 4
+    drop_when: tiles is empty
+    motion: [fade-rise, stagger-children]
+
+  door:
+    required: [headline, statement, contact]
+    content:
+      headline: string
+      statement: string
+      contact: { phone: string, email: string }
+      actions:
+        primary: { label: string, href: string }
+        secondary: { label: string, href: string }   # optional
+      form: { fields: [name, email, message], mailto: string }
+    derived: [mailto_body]
+    drop_when: contact is empty
+    motion: [split-text, fade-rise]
+
+  footer:
+    required: [wordmark, legal]
+    content:
+      wordmark: string
+      links: [{ label: string, href: string }]
+      contact: { phone: string, email: string }
+      legal: string
+    derived: [year]
+    drop_when: never
+    motion: [scrub-timeline, fade-rise]
+
+# hero is PENDING. Until it is specified, a build emits 9 sections and the
+# page opens on services. Do not substitute a placeholder hero.
+pending:
+  - hero
