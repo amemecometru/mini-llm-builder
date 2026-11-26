@@ -4,14 +4,29 @@
  * Pure function: (plan, family) => complete HTML document.
  * No model call. No network. Deterministic.
  *
- * Implements DESIGN.md (Bento Noir). The design family supplies tokens
- * (colour, type, spacing, radii) from its parsed YAML frontmatter. The plan
- * supplies the accent, the variant index and the content. Nothing else varies.
+ * Implements DESIGN-BENTO-002.md (Bento Noir), Pre-Consultation.
+ * The design family supplies tokens (colour, type, spacing, radii)
+ * from its parsed YAML frontmatter. The plan supplies the accent,
+ * the variant index and the content. Nothing else varies.
  *
  * The page is a board: bento tiles on a pure black ground, dark tiles edged
  * in white, colour carried by pills, chips and two fields per page.
  *
  * Motion lives in motion-kit.ts. This file carries none of it.
+ *
+ * Pre-Consultation: the plan may carry [token] placeholders for every
+ * real fact the brief did not supply, 25% to 40% of the page. A bracketed
+ * token must never reach the visitor as "[price]" or "[owner name]" text.
+ * renderPage resolves any token left in the body to a placeholder label
+ * in the right component (see resolveTokens), never a real-looking phone
+ * number, price, name, or rating. A placeholder is a stand-in, replaced
+ * at consultation, and it must look like part of the design.
+ *
+ * Tokens: tokensFromDesignMd reads the family's frontmatter tokens, with
+ * bento-noir fallbacks where a token is missing. Those fallbacks ARE the
+ * bento-noir values, so a design whose tokens match the fallbacks looks
+ * identical with or without a token load. A token load changes the look
+ * only where the design's tokens differ from the fallbacks.
  */
 
 import { renderableSections, type Accent, type ContentPlan, type SectionId } from "./content";
@@ -211,7 +226,7 @@ const BASE_CSS = `
 html{scroll-behavior:smooth}
 body{background:var(--ground);color:var(--neutral);font-family:var(--font-body);
   font-size:var(--text-body);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--gutter)}
+.wrap{max-width:1440px;margin-inline:auto;padding-inline:var(--gutter)}
 section{padding-block:clamp(56px,8vw,104px)}
 h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.02;letter-spacing:-0.02em}
 p{max-width:62ch}
@@ -252,6 +267,10 @@ a{color:inherit}
 .button-primary:hover,.button-secondary:hover{color:var(--neutral);border-color:var(--accent)}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 
+/* placeholder — a token resolved to a label in the right component, never a bracket on the page */
+.placeholder{color:var(--silver);font-style:normal}
+.placeholder--price,.placeholder--rating{font-family:var(--font-display)}
+
 /* the board */
 .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gutter)}
 .bento > .tile:nth-child(1){grid-column:span 7;grid-row:span 2}
@@ -290,11 +309,17 @@ a{color:inherit}
 [data-field] .statement{color:inherit}
 [data-field] .visual{background:rgba(0,0,0,.12)}
 
-/* hero — full-viewport sheet that stacks under the next section */
+/* hero — full-viewport sheet that stacks under the next section.
+   Pre-Consultation: the media side is an image sequence, 3 to 8 images,
+   not a single photo. sections.ts renders one .visual per image in the
+   sequence; the grid below lays them out. A single-image hero still works:
+   one .visual fills the media side. */
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--gutter);
   align-items:center;min-height:calc(100vh - 78px)}
 .hero__copy{display:grid;gap:18px;align-content:center}
-.hero__media .visual{min-height:clamp(320px,52vh,620px)}
+.hero__media{display:grid;grid-template-columns:1fr 1fr;gap:var(--gutter)}
+.hero__media .visual{min-height:clamp(160px,26vh,300px);margin-top:0}
+.hero__media .visual:first-child{grid-column:span 2;min-height:clamp(320px,52vh,620px)}
 .display{font-size:var(--text-display);letter-spacing:-0.03em;line-height:.96}
 
 /* marquee */
@@ -409,6 +434,8 @@ input:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:2px}
   .bento--four > .tile{grid-column:span 1}
   .tile,.step,.faq{padding:clamp(24px,6vw,32px)}
   .hero{grid-template-columns:1fr;min-height:auto}
+  .hero__media{grid-template-columns:1fr}
+  .hero__media .visual:first-child{grid-column:span 1}
   .door__halves{grid-template-columns:1fr}
   .steps--four{grid-template-columns:1fr}
   .offer-card{grid-template-columns:1fr}
@@ -468,6 +495,38 @@ ${opts.body}
 /* ------------------------------------------------------------------ */
 
 /**
+ * Pre-Consultation placeholder labels. A token left in the body is a
+ * stand-in, never a real fact: resolve it to a label in the business
+ * context, in the right component, never a made-up phone number, price,
+ * name, or rating, and never the raw "[token]" text on the page.
+ */
+const TOKEN_LABELS: Record<string, string> = {
+  phone: "Phone",
+  email: "Email",
+  "street address": "Address",
+  suburb: "Suburb",
+  "business hours": "Hours",
+  "owner name": "Owner",
+  "team member name": "Team member",
+  years: "Years",
+  "jobs completed": "Jobs completed",
+  "review count": "Reviews",
+  rating: "Rating",
+  "licence number": "Licence",
+  insurance: "Insured",
+  price: "Price on request",
+};
+
+export function resolveTokens(body: string): string {
+  return body.replace(/\[([^\]\[]+)\]/g, (m, raw: string) => {
+    const key = String(raw).trim().toLowerCase();
+    const label = TOKEN_LABELS[key] ?? String(raw).trim();
+    const cls = key === "price" || key === "rating" ? "placeholder placeholder--price" : "placeholder";
+    return `<span class="${cls}">${esc(label)}</span>`;
+  });
+}
+
+/**
  * Two colour fields per page, never more. DESIGN.md: one warm field, one
  * cool field. Everything else sits on the black ground.
  */
@@ -477,15 +536,17 @@ const FIELD_MAP: Partial<Record<SectionId, "warm" | "cool">> = {
 };
 
 export function renderPage(plan: ContentPlan, family: RenderFamily): string {
-  const body = renderableSections(plan)
-    .map((id) => {
-      const html = renderSection(id, plan);
-      if (!html) return "";
-      const field = FIELD_MAP[id];
-      return field ? html.replace(/<section([^>]*)>/, `<section$1 data-field="${field}">`) : html;
-    })
-    .filter(Boolean)
-    .join("\n");
+  const body = resolveTokens(
+    renderableSections(plan)
+      .map((id) => {
+        const html = renderSection(id, plan);
+        if (!html) return "";
+        const field = FIELD_MAP[id];
+        return field ? html.replace(/<section([^>]*)>/, `<section$1 data-field="${field}">`) : html;
+      })
+      .filter(Boolean)
+      .join("\n"),
+  );
 
   return renderDocument({
     title: `${plan.businessName} — ${family.name}`,

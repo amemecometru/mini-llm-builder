@@ -1,23 +1,31 @@
 /**
  * grammar.ts — the details file as data.
  *
- * DESIGN-<family>-details.md states the image count of every section on one
+ * DESIGN-DETAILS-002.md states the image count of every section on one
  * line, in one format, every time:
  *
- *   Image count: 1 image (the hero photo tile).
- *   Image count: 1 image on the flagship tile, ... for a maximum of 6 images ...
+ *   Image count: 3 images, for a maximum of 8 images in the section and a minimum of 3 images.
+ *   Image count: 3 images on the flagship and first tiles, plus 1 image per remaining tile that has a photo, for a maximum of 6 images ...
  *   Image count: 0 photos.
  *
  * That line is the only thing parsed. Pills and buttons stay in sections.ts —
  * they are renderer concerns and prose is not a reliable source for them.
  *
- * A section that forbids stock imagery ("never a stock face", "never a stock
- * mark") is marked stock:false and attachImages will not touch it.
+ * Pre-Consultation: placeholder images are expected, 25% to 40% of the
+ * page, in the business context and the design components. A section is
+ * never marked stock:false for using a placeholder image. The old
+ * "never a stock face" / "never a stock mark" bans belonged to the
+ * Consultation layer, where real photos were required; they do not apply
+ * here. A placeholder person is a role, not a named real person, and a
+ * placeholder partner mark is a business type, never a real company's
+ * logo — that rule lives in the design files and in prompt.ts, not in
+ * this parser. The only sections with stock:false are the ones with no
+ * image slots at all.
  */
 
 export interface SectionSlots {
   images: { min: number; max: number };
-  /** false when the design forbids stock imagery in this section. */
+  /** false when the section has no image slots at all. */
   stock: boolean;
 }
 
@@ -28,27 +36,19 @@ const SECTIONS = [
   "team", "partners", "guide", "validations", "door", "footer",
 ] as const;
 
-const STOCK_FORBIDDEN = [
-  /never a stock face/i,
-  /never use a stock photo of a fake person/i,
-  /never a stock mark/i,
-  /never use a stock logo/i,
-  /never a stock image/i,
-];
-
-/** Bento Noir, from DESIGN-bento-noir-details.md. Used when D1 has no grammar. */
+/** Bento Noir, from DESIGN-DETAILS-002.md. Used when D1 has no grammar. */
 export const DEFAULT_SLOTS: SlotMap = {
   header:      { images: { min: 0, max: 0 }, stock: false },
-  hero:        { images: { min: 1, max: 1 }, stock: true },
-  services:    { images: { min: 1, max: 6 }, stock: true },
-  process:     { images: { min: 0, max: 0 }, stock: true },
-  proof:       { images: { min: 2, max: 2 }, stock: true },
-  team:        { images: { min: 1, max: 6 }, stock: false },
+  hero:        { images: { min: 3, max: 8 }, stock: true },
+  services:    { images: { min: 3, max: 6 }, stock: true },
+  process:     { images: { min: 4, max: 8 }, stock: true },
+  proof:       { images: { min: 2, max: 6 }, stock: true },
+  team:        { images: { min: 1, max: 6 }, stock: true },
   partners:    { images: { min: 0, max: 0 }, stock: false },
-  guide:       { images: { min: 0, max: 0 }, stock: true },
-  validations: { images: { min: 0, max: 0 }, stock: true },
-  door:        { images: { min: 0, max: 0 }, stock: true },
-  footer:      { images: { min: 0, max: 0 }, stock: true },
+  guide:       { images: { min: 0, max: 6 }, stock: true },
+  validations: { images: { min: 0, max: 6 }, stock: true },
+  door:        { images: { min: 0, max: 0 }, stock: false },
+  footer:      { images: { min: 0, max: 0 }, stock: false },
 };
 
 export function parseSlots(detailsMd: string): SlotMap {
@@ -77,7 +77,9 @@ export function parseSlots(detailsMd: string): SlotMap {
 
     out[heading] = {
       images: { min, max },
-      stock: !STOCK_FORBIDDEN.some((re) => re.test(body)),
+      // Pre-Consultation: a section with image slots may use placeholder
+      // images. Only a section with no slots at all is stock:false.
+      stock: max > 0,
     };
   }
 
